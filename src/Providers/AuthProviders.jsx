@@ -1,3 +1,4 @@
+import { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -7,9 +8,8 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { createContext, useEffect, useState } from "react";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import app from "../firebase/firebase.config";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
