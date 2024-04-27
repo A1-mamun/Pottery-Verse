@@ -15,10 +15,13 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/update-profile">Update Profile</NavLink>
+        <NavLink to="/all-item">All Art & craft Items</NavLink>
       </li>
       <li>
-        <NavLink to="/offer">Offer</NavLink>
+        <NavLink to="/add-item">Add Craft Item</NavLink>
+      </li>
+      <li>
+        <NavLink to="/my-item">My Art&Craft List</NavLink>
       </li>
     </>
   );
@@ -51,7 +54,7 @@ const Navbar = () => {
               {navlinks}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">HavenHideaway</a>
+          <a className="btn btn-ghost text-xl">PotteryVerse</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>

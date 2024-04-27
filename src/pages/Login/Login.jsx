@@ -69,7 +69,7 @@ const Login = () => {
     <div className="hero h-full bg-base-200 py-10 rounded-xl">
       <div className="hero-content">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h2 className="text-3xl text-center">Login your account</h2>
+          <h2 className="text-3xl text-center pt-5">Login your account</h2>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="card-body pb-0 pt-3"
@@ -146,7 +146,7 @@ const Login = () => {
               </button>
             </div>
           </div>
-          <h2 className="text-center">
+          <h2 className="text-center pb-5">
             Do not Have An Account ?
             <Link to="/register" className="text-orange-700 font-medium">
               Register
