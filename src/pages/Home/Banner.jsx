@@ -10,12 +10,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css";
-import slide1 from "../../assets/dish.png";
-import slide2 from "../../assets/lamp.png";
-import slide3 from "../../assets/dish.png";
-import slide4 from "../../assets/lamp.png";
-import slide5 from "../../assets/dish.png";
-import slide6 from "../../assets/lamp.png";
+import slide1 from "../../assets/banner-1.png";
+import slide2 from "../../assets/banner-6.png";
+import slide3 from "../../assets/banner-3.png";
+import slide4 from "../../assets/banner-2.png";
 
 const Banner = () => {
   return (
@@ -40,9 +38,21 @@ const Banner = () => {
             </h1>
             <p>Stay Tuned with PotteryVerse</p>
           </div>
-          <img className="w-1/2 rounded-x" src={slide1} alt="slide1" />
+          <img className="w-[40%]  rounded-x" src={slide2} alt="slide1" />
+        </div>{" "}
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="flex justify-between items-center container mx-auto h-full">
+          <div>
+            <h1 className="text-5xl">
+              Decorate Your Room <br /> With lamp
+            </h1>
+            <p>Stay Tuned with PotteryVerse</p>
+          </div>
+          <img className="w-[30%] rounded-x" src={slide1} alt="slide1" />
         </div>
       </SwiperSlide>
+
       <SwiperSlide>
         <div className="flex justify-between items-center container mx-auto h-full">
           <div>
@@ -51,7 +61,7 @@ const Banner = () => {
             </h1>
             <p>Stay Tuned with PotteryVerse</p>
           </div>
-          <img className="w-1/2  rounded-x" src={slide2} alt="slide1" />
+          <img className="w-[40%]  rounded-x" src={slide3} alt="slide1" />
         </div>{" "}
       </SwiperSlide>
       <SwiperSlide>
@@ -62,40 +72,7 @@ const Banner = () => {
             </h1>
             <p>Stay Tuned with PotteryVerse</p>
           </div>
-          <img className="w-1/2  rounded-x" src={slide3} alt="slide1" />
-        </div>{" "}
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="flex justify-between items-center container mx-auto h-full">
-          <div>
-            <h1 className="text-5xl">
-              Decorate Your Room <br /> With lamp
-            </h1>
-            <p>Stay Tuned with PotteryVerse</p>
-          </div>
-          <img className="w-1/2  rounded-x" src={slide4} alt="slide1" />
-        </div>{" "}
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="flex justify-between items-center container mx-auto h-full">
-          <div>
-            <h1 className="text-5xl">
-              Decorate Your Room <br /> With lamp
-            </h1>
-            <p>Stay Tuned with PotteryVerse</p>
-          </div>
-          <img className="w-1/2  rounded-x" src={slide5} alt="slide1" />
-        </div>{" "}
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="flex justify-between items-center container mx-auto h-full">
-          <div>
-            <h1 className="text-5xl">
-              Decorate Your Room <br /> With lamp
-            </h1>
-            <p>Stay Tuned with PotteryVerse</p>
-          </div>
-          <img className="w-1/2  rounded-x" src={slide6} alt="slide1" />
+          <img className="w-[30%]  rounded-x" src={slide4} alt="slide1" />
         </div>{" "}
       </SwiperSlide>
     </Swiper>

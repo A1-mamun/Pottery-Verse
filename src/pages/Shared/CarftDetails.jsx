@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import image from "../../assets/image1.jpg";
+import image from "../../assets/banner-1.png";
 import { FaBangladeshiTakaSign, FaClockRotateLeft } from "react-icons/fa6";
 
 import { FcRating } from "react-icons/fc";

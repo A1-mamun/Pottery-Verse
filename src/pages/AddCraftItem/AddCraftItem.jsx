@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const AddCraftItem = () => {
   const {
@@ -8,18 +9,27 @@ const AddCraftItem = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const {
-      name,
-      image,
-      category,
-      customization,
-      price,
-      rating,
-      status,
-      time,
-      details,
-    } = data;
     console.log(data);
+    // send data to the server
+    fetch("http://localhost:5000/crafts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Good Job!",
+            text: "Item Added Successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        }
+      });
   };
   return (
     <div className="container mx-auto bg-gray-800 rounded-xl px-20 py-10 my-10">
@@ -33,6 +43,38 @@ const AddCraftItem = () => {
         <div className="flex gap-10 w-full my-8">
           <div className="form-control w-full">
             <label className="input input-bordered flex items-center gap-2 text-blue-300">
+              User Email :
+              <input
+                name="email"
+                type="email"
+                className="grow text-gray-400"
+                placeholder="Enter item name"
+                {...register("email", { required: true })}
+              />
+              {errors.email && (
+                <span className="text-red-700">This field is required</span>
+              )}
+            </label>
+          </div>
+          <div className="form-control w-full">
+            <label className="input input-bordered flex items-center gap-2 text-blue-300">
+              User Name :
+              <input
+                name="userName"
+                type="text"
+                className="grow text-gray-400"
+                placeholder="Enter photo url"
+                {...register("userName", { required: true })}
+              />
+              {errors.userName && (
+                <span className="text-red-700">This field is required</span>
+              )}
+            </label>
+          </div>
+        </div>
+        <div className="flex gap-10 w-full my-8">
+          <div className="form-control w-full">
+            <label className="input input-bordered flex items-center gap-2 text-blue-300">
               Name :
               <input
                 name="name"
@@ -41,6 +83,9 @@ const AddCraftItem = () => {
                 placeholder="Enter item name"
                 {...register("name", { required: true })}
               />
+              {errors.name && (
+                <span className="text-red-700">This field is required</span>
+              )}
             </label>
           </div>
           <div className="form-control w-full">
@@ -53,6 +98,9 @@ const AddCraftItem = () => {
                 placeholder="Enter photo url"
                 {...register("image", { required: true })}
               />
+              {errors.image && (
+                <span className="text-red-700">This field is required</span>
+              )}
             </label>
           </div>
         </div>
@@ -73,6 +121,9 @@ const AddCraftItem = () => {
               </option>
               <option value="Home decor pottery">Home decor pottery</option>
             </select>
+            {errors.category && (
+              <span className="text-red-700">This field is required</span>
+            )}
           </div>
           <div className="form-control w-full">
             <select
@@ -84,6 +135,9 @@ const AddCraftItem = () => {
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
+            {errors.customization && (
+              <span className="text-red-700">This field is required</span>
+            )}
           </div>
         </div>
         <div className="flex gap-10 w-full my-8">
@@ -97,6 +151,9 @@ const AddCraftItem = () => {
                 placeholder="Enter price"
                 {...register("price", { required: true })}
               />
+              {errors.price && (
+                <span className="text-red-700">This field is required</span>
+              )}
             </label>
           </div>
           <div className="form-control w-full">
@@ -109,6 +166,9 @@ const AddCraftItem = () => {
                 placeholder="Enter rating"
                 {...register("rating", { required: true })}
               />
+              {errors.rating && (
+                <span className="text-red-700">This field is required</span>
+              )}
             </label>
           </div>
         </div>
@@ -124,6 +184,9 @@ const AddCraftItem = () => {
                   placeholder="Enter time in week"
                   {...register("time", { required: true })}
                 />
+                {errors.time && (
+                  <span className="text-red-700">This field is required</span>
+                )}
               </label>
             </div>
             <div className="form-control w-full">
@@ -136,6 +199,9 @@ const AddCraftItem = () => {
                 <option value="In stock">In stock</option>
                 <option value="Made to Order">Made to Order</option>
               </select>
+              {errors.status && (
+                <span className="text-red-700">This field is required</span>
+              )}
             </div>
           </div>
           <div className="form-control w-full mb-8">
@@ -148,6 +214,9 @@ const AddCraftItem = () => {
                 placeholder="Enter short description"
                 {...register("details", { required: true })}
               />
+              {errors.details && (
+                <span className="text-red-700">This field is required</span>
+              )}
             </label>
           </div>
         </div>
