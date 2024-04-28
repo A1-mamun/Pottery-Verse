@@ -8,6 +8,7 @@ import AllArtCraftItem from "../pages/AllArtCraftItem/AllArtCraftItem";
 import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
 import MyArtCraftItem from "../pages/MyArtCraftItem/MyArtCraftItem";
 import CarftDetails from "../pages/Shared/CarftDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -33,11 +34,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-item",
-        element: <AddCraftItem></AddCraftItem>,
+        element: (
+          <PrivateRoutes>
+            <AddCraftItem></AddCraftItem>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/my-item",
-        element: <MyArtCraftItem></MyArtCraftItem>,
+        element: (
+          <PrivateRoutes>
+            <MyArtCraftItem></MyArtCraftItem>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/craft-details",
