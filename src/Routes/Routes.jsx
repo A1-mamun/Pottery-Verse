@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register";
 import AllArtCraftItem from "../pages/AllArtCraftItem/AllArtCraftItem";
 import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
 import MyArtCraftItem from "../pages/MyArtCraftItem/MyArtCraftItem";
+import CarftDetails from "../pages/Shared/CarftDetails";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/my-item",
         element: <MyArtCraftItem></MyArtCraftItem>,
+      },
+      {
+        path: "/craft-details",
+        element: <CarftDetails></CarftDetails>,
       },
     ],
   },

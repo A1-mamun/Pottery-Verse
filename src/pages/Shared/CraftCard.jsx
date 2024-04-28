@@ -32,7 +32,7 @@ const CraftCard = () => {
         </div>
       </div>
       <div className="flex justify-end items-center mt-5">
-        <Link>
+        <Link to="/craft-details">
           <button className="btn btn-success btn-sm">View Details</button>
         </Link>
       </div>
