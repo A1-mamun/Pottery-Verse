@@ -21,7 +21,7 @@ const AddCraftItem = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data?.insertedId) {
           Swal.fire({
             title: "Good Job!",
             text: "Item Added Successfully",
