@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
-import image from "../../assets/banner-1.png";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { FcRating } from "react-icons/fc";
-const CraftCard = () => {
+const CraftCard = ({ craft }) => {
+  const {
+    _id,
+    name,
+    image,
+    category,
+    customization,
+    price,
+    rating,
+    time,
+    status,
+    details,
+  } = craft;
   return (
     <div className="card bg-base-100 shadow-xl p-7 border border-dark-15 flex flex-col h-full w-full">
       <figure className="bg-dark-05 rounded-2xl">
@@ -14,20 +25,20 @@ const CraftCard = () => {
       </figure>
       <div className="border-b-2 border-dashed pb-5 mt-5 grow">
         <h2 className="card-title my-4 text-2xl font-playfair font-bold ">
-          Hand made Clay pottery
+          {name}
         </h2>
         <div className="flex justify-between text-dark-8 font-medium">
-          <p className="text-dark-8 font-medium"> Clay made pottery</p>
+          <p className="text-dark-8 font-medium"> {category}</p>
           <p className="text-dark-8 font-medium"> </p>
         </div>
       </div>
       <div className="flex justify-between mt-5 text-dark-8 font-medium">
         <div className="flex items-center gap-1">
-          <p>2,000</p>
+          <p>{price}</p>
           <FaBangladeshiTakaSign />
         </div>
         <div className="flex items-center gap-1">
-          <p>4.9</p>
+          <p>{rating}</p>
           <FcRating />
         </div>
       </div>

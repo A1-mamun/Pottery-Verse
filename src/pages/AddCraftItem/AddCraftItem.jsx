@@ -8,7 +8,7 @@ const AddCraftItem = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, event) => {
     console.log(data);
     // send data to the server
     fetch("http://localhost:5000/crafts", {
@@ -28,6 +28,7 @@ const AddCraftItem = () => {
             icon: "success",
             confirmButtonText: "Ok",
           });
+          event.target.reset();
         }
       });
   };
@@ -48,7 +49,7 @@ const AddCraftItem = () => {
                 name="email"
                 type="email"
                 className="grow text-gray-400"
-                placeholder="Enter item name"
+                placeholder="Enter user email"
                 {...register("email", { required: true })}
               />
               {errors.email && (
@@ -63,7 +64,7 @@ const AddCraftItem = () => {
                 name="userName"
                 type="text"
                 className="grow text-gray-400"
-                placeholder="Enter photo url"
+                placeholder="Enter user name"
                 {...register("userName", { required: true })}
               />
               {errors.userName && (
