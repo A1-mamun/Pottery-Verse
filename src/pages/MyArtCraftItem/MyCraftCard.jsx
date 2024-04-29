@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { FcRating } from "react-icons/fc";
-const MyCraftCard = ({ craft }) => {
+import Swal from "sweetalert2";
+const MyCraftCard = ({ craft, myCrafts, setMyCrafts }) => {
   const {
     _id,
     name,
@@ -14,6 +15,39 @@ const MyCraftCard = ({ craft }) => {
     status,
     details,
   } = craft;
+
+  //   function for delete crafts
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // console.log("delete confirmed");
+        fetch(`http://localhost:5000/craft/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const remaining = myCrafts.filter((craft) => craft._id !== _id);
+              setMyCrafts(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <div className="bg-base-100 shadow-xl p-5 border border-dark-15 flex h-full w-full rounded-xl gap-5">
       <figure className="bg-dark-05 rounded-2xl w-2/5">
@@ -52,9 +86,14 @@ const MyCraftCard = ({ craft }) => {
           <Link to={`/craft-update/${_id}`}>
             <button className="btn btn-info btn-sm">Update</button>
           </Link>
-          <Link to={`/craft-details/${_id}`}>
-            <button className="btn btn-error btn-sm">Delete</button>
-          </Link>
+
+          <button
+            onClick={() => handleDelete(_id)}
+            className="btn btn-error btn-sm"
+          >
+            Delete
+          </button>
+
           <Link to={`/craft-details/${_id}`}>
             <button className="btn btn-success btn-sm">Details</button>
           </Link>

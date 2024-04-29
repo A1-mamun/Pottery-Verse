@@ -13,14 +13,19 @@ const MyArtCraftItem = () => {
         console.log(data);
         setMyCrafts(data);
       });
-  }, [user]);
+  }, [myCrafts]);
   return (
     <div className="container mx-auto my-10 text-center">
       <h2 className="text-3xl text-center">My Craft List</h2>
       {myCrafts ? (
         <div className="my-20 grid grid-cols-1 lg:grid-cols-2  gap-10 items-center justify-center ">
           {myCrafts.map((craft) => (
-            <MyCraftCard key={craft._Id} craft={craft}></MyCraftCard>
+            <MyCraftCard
+              key={craft._Id}
+              craft={craft}
+              nyCrafts={myCrafts}
+              setMyCrafts={setMyCrafts}
+            ></MyCraftCard>
           ))}
         </div>
       ) : (
