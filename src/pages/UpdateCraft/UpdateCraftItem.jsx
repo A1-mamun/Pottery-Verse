@@ -1,18 +1,32 @@
 import { useForm } from "react-hook-form";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AddCraftItem = () => {
+const UpdateCraftItem = () => {
+  const craft = useLoaderData();
+  const {
+    _id,
+    name,
+    image,
+    category,
+    customization,
+    price,
+    rating,
+    time,
+    status,
+    details,
+  } = craft;
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data, event) => {
-    console.log(data);
+  const onSubmit = (data) => {
+    // console.log(data);
     // send data to the server
-    fetch("http://localhost:5000/crafts", {
-      method: "POST",
+    fetch(`http://localhost:5000/craft/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -21,14 +35,13 @@ const AddCraftItem = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data?.insertedId) {
+        if (data?.matchedCount) {
           Swal.fire({
             title: "Good Job!",
-            text: "Item Added Successfully",
+            text: "Item Updated Successfully",
             icon: "success",
             confirmButtonText: "Ok",
           });
-          event.target.reset();
         }
       });
   };
@@ -38,41 +51,9 @@ const AddCraftItem = () => {
         className="text-3xl text-center mb-10
       "
       >
-        Add Craft Item
+        Update Craft Item
       </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex gap-10 w-full my-8">
-          <div className="form-control w-full">
-            <label className="input input-bordered flex items-center gap-2 text-blue-300">
-              User Email :
-              <input
-                name="email"
-                type="email"
-                className="grow text-gray-400"
-                placeholder="Enter user email"
-                {...register("email", { required: true })}
-              />
-              {errors.email && (
-                <span className="text-red-700">This field is required</span>
-              )}
-            </label>
-          </div>
-          <div className="form-control w-full">
-            <label className="input input-bordered flex items-center gap-2 text-blue-300">
-              User Name :
-              <input
-                name="userName"
-                type="text"
-                className="grow text-gray-400"
-                placeholder="Enter user name"
-                {...register("userName", { required: true })}
-              />
-              {errors.userName && (
-                <span className="text-red-700">This field is required</span>
-              )}
-            </label>
-          </div>
-        </div>
         <div className="flex gap-10 w-full my-8">
           <div className="form-control w-full">
             <label className="input input-bordered flex items-center gap-2 text-blue-300">
@@ -81,7 +62,7 @@ const AddCraftItem = () => {
                 name="name"
                 type="text"
                 className="grow text-gray-400"
-                placeholder="Enter item name"
+                defaultValue={name}
                 {...register("name", { required: true })}
               />
               {errors.name && (
@@ -96,7 +77,7 @@ const AddCraftItem = () => {
                 name="image"
                 type="text"
                 className="grow text-gray-400"
-                placeholder="Enter photo url"
+                defaultValue={image}
                 {...register("image", { required: true })}
               />
               {errors.image && (
@@ -112,7 +93,9 @@ const AddCraftItem = () => {
               className="select w-full text-gray-400"
               {...register("category", { required: true })}
             >
-              <option value="">Sub-Category Name</option>
+              <option value={category || ""}>
+                {category || "Sub-Category Name"}
+              </option>
               <option value="Clay-made pottery">Clay-made pottery</option>
               <option value="Stoneware">Stoneware</option>
               <option value="Porcelain">Porcelain</option>
@@ -132,7 +115,9 @@ const AddCraftItem = () => {
               className="select w-full text-gray-400"
               {...register("customization", { required: true })}
             >
-              <option value="">Customization</option>
+              <option value={customization || ""}>
+                {customization || "Customization"}
+              </option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
@@ -149,7 +134,7 @@ const AddCraftItem = () => {
                 name="price"
                 type="text"
                 className="grow text-gray-400"
-                placeholder="Enter price"
+                defaultValue={price}
                 {...register("price", { required: true })}
               />
               {errors.price && (
@@ -164,7 +149,7 @@ const AddCraftItem = () => {
                 name="rating"
                 type="text"
                 className="grow text-gray-400"
-                placeholder="Enter rating"
+                defaultValue={rating}
                 {...register("rating", { required: true })}
               />
               {errors.rating && (
@@ -182,7 +167,7 @@ const AddCraftItem = () => {
                   name="time"
                   type="text"
                   className="grow text-gray-400"
-                  placeholder="Enter time in week"
+                  defaultValue={time}
                   {...register("time", { required: true })}
                 />
                 {errors.time && (
@@ -196,7 +181,7 @@ const AddCraftItem = () => {
                 className="select w-full text-gray-400"
                 {...register("status", { required: true })}
               >
-                <option value="">Stock Status</option>
+                <option value={status || ""}>{status || "Stock Status"}</option>
                 <option value="In stock">In stock</option>
                 <option value="Made to Order">Made to Order</option>
               </select>
@@ -212,7 +197,7 @@ const AddCraftItem = () => {
                 name="details"
                 type="text"
                 className="grow h-28 rounded-xl px-2 bg-transparent focus:outline-none text-gray-400"
-                placeholder="Enter short description"
+                defaultValue={details}
                 {...register("details", { required: true })}
               />
               {errors.details && (
@@ -224,11 +209,11 @@ const AddCraftItem = () => {
         <input
           type="submit"
           className="btn btn-block bg-green-500 text-white text-lg"
-          value="Add Item"
+          value="Update Item"
         />
       </form>
     </div>
   );
 };
 
-export default AddCraftItem;
+export default UpdateCraftItem;

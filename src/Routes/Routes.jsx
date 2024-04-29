@@ -9,6 +9,7 @@ import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
 import MyArtCraftItem from "../pages/MyArtCraftItem/MyArtCraftItem";
 import CarftDetails from "../pages/Shared/CarftDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import UpdateCraftItem from "../pages/UpdateCraft/UpdateCraftItem";
 
 const router = createBrowserRouter([
   {
@@ -50,8 +51,20 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/craft-details",
-        element: <CarftDetails></CarftDetails>,
+        path: "/craft-details/:id",
+        element: (
+          <PrivateRoutes>
+            <CarftDetails></CarftDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craft/${params.id}`),
+      },
+      {
+        path: "/craft-update/:id",
+        element: <UpdateCraftItem></UpdateCraftItem>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craft/${params.id}`),
       },
     ],
   },
