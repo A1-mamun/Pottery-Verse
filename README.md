@@ -1,8 +1,21 @@
-# React + Vite
+# PotteryVerse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A art & craft selling website
 
-Currently, two official plugins are available:
+## Deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To deploy this project click
+
+- [PotteryVerse](https://pottery-verse.web.app/)
+
+## Features
+
+- Light/dark mode toggle
+- Live previews
+- Cross platform
+- can update items
+- can customize your item
+
+## Selected Category
+
+- Ceramics and Pottery
