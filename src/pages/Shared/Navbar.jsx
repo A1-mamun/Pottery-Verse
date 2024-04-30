@@ -54,14 +54,14 @@ const Navbar = () => {
               {navlinks}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">PotteryVerse</a>
+          <a className="btn btn-ghost text-xl ml-[-10px]">PotteryVerse</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
         <div className="navbar-end">
           {user && (
-            <div className=" tooltip mr-3" data-tip="tool-tip">
+            <div className=" tooltip mr-3" data-tip={user.displayName}>
               <img
                 className="btn btn-circle"
                 alt="Profile picture"
@@ -70,16 +70,16 @@ const Navbar = () => {
             </div>
           )}
           {user ? (
-            <button onClick={handleSignOut} className="btn">
+            <button onClick={handleSignOut} className="btn btn-sm md:btn-md ">
               Sign Out
             </button>
           ) : (
             <>
               <Link to="/login">
-                <button className="btn">Login</button>
+                <button className="btn btn-sm md:btn-md ">Login</button>
               </Link>
               <Link to="/register">
-                <button className="btn ml-2">Register</button>
+                <button className="btn btn-sm md:btn-md  ml-2">Register</button>
               </Link>
             </>
           )}

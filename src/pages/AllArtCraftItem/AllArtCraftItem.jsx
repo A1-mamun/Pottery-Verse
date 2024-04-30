@@ -5,7 +5,9 @@ const AllArtCraftItem = () => {
   const crafts = useLoaderData();
   return (
     <div className="container mx-auto my-10">
-      <h2 className="text-4xl text-center mb-7">All Art & Craft</h2>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-7">
+        All Art & Craft
+      </h2>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

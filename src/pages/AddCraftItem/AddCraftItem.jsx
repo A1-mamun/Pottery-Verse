@@ -11,7 +11,7 @@ const AddCraftItem = () => {
   const onSubmit = (data, event) => {
     console.log(data);
     // send data to the server
-    fetch("http://localhost:5000/crafts", {
+    fetch("https://pottery-verse-server.vercel.app/crafts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -35,7 +35,7 @@ const AddCraftItem = () => {
   return (
     <div className="container mx-auto bg-gray-800 rounded-xl px-5 md:px-8 lg:px-20 py-10 my-10">
       <h2
-        className="text-3xl text-center mb-10
+        className="text-2xl md:text-3xl lg:text-4xl text-center mb-10
       "
       >
         Add Craft Item
@@ -223,7 +223,7 @@ const AddCraftItem = () => {
         </div>
         <input
           type="submit"
-          className="btn btn-block bg-green-500 text-white text-lg"
+          className="btn btn-block bg-green-500 text-white text-base md:text-lg"
           value="Add Item"
         />
       </form>

@@ -7,7 +7,7 @@ const MyArtCraftItem = () => {
   const [myCrafts, setMyCrafts] = useState();
   // console.log(user);
   useEffect(() => {
-    fetch(`http://localhost:5000/myItem/${user?.email}`)
+    fetch(`https://pottery-verse-server.vercel.app/myItem/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -15,10 +15,12 @@ const MyArtCraftItem = () => {
       });
   }, [myCrafts]);
   return (
-    <div className="container mx-auto my-10 text-center">
-      <h2 className="text-3xl text-center">My Craft List</h2>
+    <div className="container mx-auto my-5 md:my-10 text-center">
+      <h2 className="text-2xl md:text-3xl lg:text-4xl text-center">
+        My Craft List
+      </h2>
       {myCrafts ? (
-        <div className="my-20 grid grid-cols-1 lg:grid-cols-2  gap-10 items-center justify-center ">
+        <div className="my-5 md:my-10 lg:my-20 grid grid-cols-1 lg:grid-cols-2  gap-10 items-center justify-center ">
           {myCrafts.map((craft) => (
             <MyCraftCard
               key={craft._Id}

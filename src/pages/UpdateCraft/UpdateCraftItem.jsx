@@ -25,7 +25,7 @@ const UpdateCraftItem = () => {
   const onSubmit = (data) => {
     // console.log(data);
     // send data to the server
-    fetch(`http://localhost:5000/craft/${_id}`, {
+    fetch(`https://pottery-verse-server.vercel.app/craft/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

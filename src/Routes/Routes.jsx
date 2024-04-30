@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/all-item",
         element: <AllArtCraftItem></AllArtCraftItem>,
-        loader: () => fetch("http://localhost:5000/crafts"),
+        loader: () => fetch("https://pottery-verse-server.vercel.app/crafts"),
       },
       {
         path: "/add-item",
@@ -59,19 +59,21 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craft/${params.id}`),
+          fetch(`https://pottery-verse-server.vercel.app/craft/${params.id}`),
       },
       {
         path: "/craft-update/:id",
         element: <UpdateCraftItem></UpdateCraftItem>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craft/${params.id}`),
+          fetch(`https://pottery-verse-server.vercel.app/craft/${params.id}`),
       },
       {
         path: "/category/:name",
         element: <Category></Category>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.name}`),
+          fetch(
+            `https://pottery-verse-server.vercel.app/category/${params.name}`
+          ),
       },
     ],
   },

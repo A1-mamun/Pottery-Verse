@@ -29,7 +29,7 @@ const MyCraftCard = ({ craft, myCrafts, setMyCrafts }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // console.log("delete confirmed");
-        fetch(`http://localhost:5000/craft/${_id}`, {
+        fetch(`https://pottery-verse-server.vercel.app/craft/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
