@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 const Row = ({ craft }) => {
   const { image, name, category, rating, _id } = craft;
   return (
-    <tr className=" text-base md:text-lg">
+    <tr className="text-sm md:text-lg">
       <td>
         <div className="flex items-center gap-3">
-          <div className="avatar">
+          <div className="avatar hidden md:block">
             <div className="mask mask-squircle w-12 h-12">
               <img src={image} alt={name} />
             </div>
           </div>
           <div>
-            <div className="font-bold">{name}</div>
+            <div className="font-medium">{name}</div>
           </div>
         </div>
       </td>

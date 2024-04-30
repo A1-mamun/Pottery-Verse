@@ -55,47 +55,58 @@ const MyCraftCard = ({ craft, myCrafts, setMyCrafts }) => {
       </figure>
       <div className="w-3/5">
         <div className="border-b border-dashed pb-5 grow">
-          <h2 className="card-title mb-3 text-2xl font-bold ">{name}</h2>
+          <h2 className="card-title mb-3 text-base md:text-xl lg:text-2xl font-bold ">
+            {name}
+          </h2>
           <div className="flex justify-between text-dark-8 font-medium">
-            <p className="text-dark-8 font-medium"> {category}</p>
+            <p className="text-dark-8 text-xs md:text-sm lg:text-base font-medium">
+              {" "}
+              {category}
+            </p>
             <p className="text-dark-8 font-medium"> </p>
           </div>
         </div>
         <div className="flex justify-between mt-5 text-dark-8 font-medium">
           <div className="flex items-center gap-1">
-            <p>{price}</p>
+            <p className="text-xs md:text-sm lg:text-base">{price}</p>
             <FaBangladeshiTakaSign />
           </div>
           <div className="flex items-center gap-1">
-            <p>{rating}</p>
+            <p className="text-xs md:text-sm lg:text-base">{rating}</p>
             <FcRating />
           </div>
         </div>
         <div className="flex justify-between mt-3 text-dark-8 font-medium">
           <div>
-            <p>
+            <p className="text-xs md:text-sm lg:text-base">
               Customize:
-              <span className="ml-2 badge badge-success">{customization}</span>
+              <span className="ml-2 badge-sm md:badge-md badge badge-success">
+                {customization}
+              </span>
             </p>
           </div>
           <div>
-            <p className="text-green-400">{status}</p>
+            <p className="text-green-400 text-xs md:text-sm lg:text-base">
+              {status}
+            </p>
           </div>
         </div>
         <div className="flex justify-between items-center mt-5">
           <Link to={`/craft-update/${_id}`}>
-            <button className="btn btn-info btn-sm">Update</button>
+            <button className="btn btn-info  btn-xs md:btn-sm">Update</button>
           </Link>
 
           <button
             onClick={() => handleDelete(_id)}
-            className="btn btn-error btn-sm"
+            className="btn btn-xs md:btn-sm btn-error "
           >
             Delete
           </button>
 
           <Link to={`/craft-details/${_id}`}>
-            <button className="btn btn-success btn-sm">Details</button>
+            <button className="btn btn-success btn-xs md:btn-sm">
+              Details
+            </button>
           </Link>
         </div>
       </div>

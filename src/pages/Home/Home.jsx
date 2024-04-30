@@ -7,6 +7,7 @@ const Home = () => {
   const [crafts, setCrafts] = useState();
   const [categories, setCategories] = useState();
 
+  console.log(crafts);
   useEffect(() => {
     fetch("http://localhost:5000/crafts")
       .then((res) => res.json())

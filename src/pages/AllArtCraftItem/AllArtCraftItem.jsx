@@ -10,7 +10,7 @@ const AllArtCraftItem = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-lg md:text-xl">
+            <tr className="text-base md:text-xl">
               <th>Name</th>
               <th>Category</th>
               <th>Rating</th>

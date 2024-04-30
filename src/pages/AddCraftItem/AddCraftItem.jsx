@@ -33,7 +33,7 @@ const AddCraftItem = () => {
       });
   };
   return (
-    <div className="container mx-auto bg-gray-800 rounded-xl px-20 py-10 my-10">
+    <div className="container mx-auto bg-gray-800 rounded-xl px-5 md:px-8 lg:px-20 py-10 my-10">
       <h2
         className="text-3xl text-center mb-10
       "
@@ -41,9 +41,9 @@ const AddCraftItem = () => {
         Add Craft Item
       </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex gap-10 w-full my-8">
+        <div className="flex flex-col lg:flex-row gap-10 w-full my-8">
           <div className="form-control w-full">
-            <label className="input input-bordered flex items-center gap-2 text-blue-300">
+            <label className="input input-bordered flex items-center gap-2 text-blue-300 text-sm md:text-base">
               User Email :
               <input
                 name="email"
@@ -58,7 +58,7 @@ const AddCraftItem = () => {
             </label>
           </div>
           <div className="form-control w-full">
-            <label className="input input-bordered flex items-center gap-2 text-blue-300">
+            <label className="input input-bordered flex items-center gap-2 text-blue-300 text-sm md:text-base">
               User Name :
               <input
                 name="userName"
@@ -73,9 +73,9 @@ const AddCraftItem = () => {
             </label>
           </div>
         </div>
-        <div className="flex gap-10 w-full my-8">
+        <div className="flex flex-col lg:flex-row gap-10 w-full my-8">
           <div className="form-control w-full">
-            <label className="input input-bordered flex items-center gap-2 text-blue-300">
+            <label className="input input-bordered flex items-center gap-2 text-blue-300 text-sm md:text-base">
               Name :
               <input
                 name="name"
@@ -90,7 +90,7 @@ const AddCraftItem = () => {
             </label>
           </div>
           <div className="form-control w-full">
-            <label className="input input-bordered flex items-center gap-2 text-blue-300">
+            <label className="input input-bordered flex items-center gap-2 text-blue-300 text-sm md:text-base">
               Photo URL :
               <input
                 name="image"
@@ -105,11 +105,11 @@ const AddCraftItem = () => {
             </label>
           </div>
         </div>
-        <div className="flex gap-10 w-full my-8">
+        <div className="flex flex-col lg:flex-row gap-10 w-full my-8">
           <div className="form-control w-full">
             <select
               name="category"
-              className="select w-full text-gray-400"
+              className="select w-full text-gray-400 text-sm md:text-base"
               {...register("category", { required: true })}
             >
               <option value="">Sub-Category Name</option>
@@ -129,7 +129,7 @@ const AddCraftItem = () => {
           <div className="form-control w-full">
             <select
               name="customization"
-              className="select w-full text-gray-400"
+              className="select w-full text-gray-400 text-sm md:text-base"
               {...register("customization", { required: true })}
             >
               <option value="">Customization</option>
@@ -141,9 +141,9 @@ const AddCraftItem = () => {
             )}
           </div>
         </div>
-        <div className="flex gap-10 w-full my-8">
+        <div className="flex flex-col lg:flex-row gap-10 w-full my-8">
           <div className="form-control w-full">
-            <label className="input input-bordered flex items-center gap-2 text-blue-300">
+            <label className="input input-bordered flex items-center gap-2 text-blue-300 text-sm md:text-base">
               Price :
               <input
                 name="price"
@@ -158,7 +158,7 @@ const AddCraftItem = () => {
             </label>
           </div>
           <div className="form-control w-full">
-            <label className="input input-bordered flex items-center gap-2 text-blue-300">
+            <label className="input input-bordered flex items-center gap-2 text-blue-300 text-sm md:text-base">
               Rating :
               <input
                 name="rating"
@@ -173,10 +173,10 @@ const AddCraftItem = () => {
             </label>
           </div>
         </div>
-        <div className="flex gap-10 w-full my-8">
+        <div className="flex flex-col lg:flex-row gap-10 w-full my-8">
           <div className="w-full">
             <div className="form-control w-full mb-8">
-              <label className="input input-bordered flex items-center gap-2 text-blue-300">
+              <label className="input input-bordered flex items-center gap-2 text-blue-300 text-sm md:text-base">
                 Processing Time :
                 <input
                   name="time"
@@ -206,7 +206,7 @@ const AddCraftItem = () => {
             </div>
           </div>
           <div className="form-control w-full mb-8">
-            <label className="textarea textarea-bordered textarea-ghost flex  gap-2 text-blue-300">
+            <label className="textarea textarea-bordered textarea-ghost flex  gap-2 text-blue-300 text-sm md:text-base">
               Description :
               <textarea
                 name="details"
