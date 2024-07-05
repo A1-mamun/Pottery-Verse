@@ -13,9 +13,9 @@ const MyArtCraftItem = () => {
         console.log(data);
         setMyCrafts(data);
       });
-  }, [myCrafts]);
+  }, [myCrafts, user]);
   return (
-    <div className="container mx-auto my-5 md:my-10 text-center">
+    <div className="container mx-auto mt-28 text-center">
       <h2 className="text-2xl md:text-3xl lg:text-4xl text-center">
         My Craft List
       </h2>

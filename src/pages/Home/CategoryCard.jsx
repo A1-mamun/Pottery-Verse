@@ -7,13 +7,15 @@ const CategoryCard = ({ craftCategory }) => {
       <figure className="bg-dark-05 rounded-2xl w-full">
         <img className="w-full h-52 rounded-xl" src={image} alt={category} />
       </figure>
-      <div className="text-center">
-        <div className="pb-5 grow">
+      <div className="">
+        <div className="pb-5 text-left">
           <p className="text-dark-8 font-medium text-xl"> {category}</p>
         </div>
-        <Link to={`/category/${category}`}>
-          <button className="btn btn-success btn-sm">See More</button>
-        </Link>
+        <div className="text-right">
+          <Link to={`/category/${category}`}>
+            <button className="btn btn-success btn-sm ">See More</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

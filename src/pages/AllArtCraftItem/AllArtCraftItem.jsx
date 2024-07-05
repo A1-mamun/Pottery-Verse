@@ -4,7 +4,7 @@ import Row from "./Row";
 const AllArtCraftItem = () => {
   const crafts = useLoaderData();
   return (
-    <div className="container mx-auto my-10">
+    <div className="container mx-auto mt-28 bg-gray-100 p-10 mb-10 rounded-xl">
       <h2 className="text-2xl md:text-3xl lg:text-4xl text-center mb-7">
         All Art & Craft
       </h2>

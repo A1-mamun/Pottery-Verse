@@ -33,7 +33,7 @@ const AddCraftItem = () => {
       });
   };
   return (
-    <div className="container mx-auto bg-gray-800 rounded-xl px-5 md:px-8 lg:px-20 py-10 my-10">
+    <div className="container mx-auto bg-gray-100 rounded-xl px-5 md:px-8 lg:px-20 py-10 mt-28">
       <h2
         className="text-2xl md:text-3xl lg:text-4xl text-center mb-10
       "
